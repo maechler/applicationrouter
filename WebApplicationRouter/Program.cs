@@ -13,6 +13,12 @@ namespace WebApplicationRouter
 			Console.WriteLine ("WebApp Router");
 			var server = new HttpRoutingServer ();
 
+			server.RoutingTable.Add (new RoutingDestination () {
+				DomainPattern = "localhost",
+				IPAddress = "localhost",
+				Port = 3000
+			});
+
 			Console.WriteLine ("running server...");
 			server.Start ();
 		}
