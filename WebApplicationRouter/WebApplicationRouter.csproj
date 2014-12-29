@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -40,9 +42,17 @@
     <Compile Include="Routing\HttpRoutingServer.cs" />
     <Compile Include="Routing\RoutingTable.cs" />
     <Compile Include="Routing\RoutingDestination.cs" />
+    <Compile Include="CLI\CommandLineInterpreter.cs" />
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Settings\SettingsManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Routing\" />
+    <Folder Include="CLI\" />
+    <Folder Include="Settings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CLI\router" />
   </ItemGroup>
 </Project>

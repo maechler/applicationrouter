@@ -3,6 +3,7 @@ using System.Net;
 using System.Web;
 using System.IO;
 using Marx.Net;
+using Marx.Net.CLI;
 
 namespace WebApplicationRouter
 {
@@ -10,11 +11,15 @@ namespace WebApplicationRouter
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("WebApp Router");
-			var server = new HttpRoutingServer ();
+			var interpreter = new CommandLineInterpreter ();
+			interpreter.Execute (args);
 
-			Console.WriteLine ("running server...");
-			server.Start ();
+			//Console.WriteLine ("WebApp Router");
+			//Console.WriteLine (args [0]);
+			//var server = new HttpRoutingServer ();
+
+			//Console.WriteLine ("running server...");
+			//server.Start ();
 		}
 	}
 }
