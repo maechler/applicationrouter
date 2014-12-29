@@ -11,14 +11,14 @@ namespace Marx.Net
 
 		public RoutingTable RoutingTable { get; set; }
 
-		public HttpRoutingServer ()
+		public HttpRoutingServer () : this (new RoutingTable ())
 		{
-			this (new RoutingTable ());
 		}
 
 		public HttpRoutingServer (RoutingTable routingTable)
 		{
 			Listener = new HttpListener ();
+			Listener.Prefixes.Add ("http://*:8080/");
 			RoutingTable = routingTable;
 		}
 

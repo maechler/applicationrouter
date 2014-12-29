@@ -21,6 +21,7 @@ namespace Marx.Net
 			System.IO.Stream output = response.OutputStream;
 			output.Write (responsebyte, 0, responsebyte.Length);
 			output.Close ();
+			response.Close ();
 		}
 	}
 }
