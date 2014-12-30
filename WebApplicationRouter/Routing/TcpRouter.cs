@@ -63,7 +63,7 @@ namespace Marx.Net
 
 			var fakeData = Encoding.UTF8.GetBytes ("GET /sys/login HTTP/1.1\r\nHost: localhost:8080\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-us\r\nConnection: keep-alive\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5\r\n\r\n");
 			//internalClient.Client.Send (System.Text.Encoding.UTF8.GetBytes ("GET / HTTP/1.1\r\nHost: localhost:8080\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-us\r\nConnection: keep-alive\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5\r\n\r\n"));
-			internalClient.Client.Send (fakeData);
+			internalClient.Client.Send (datacopy);
 			 
 			internalClient.Client.Receive (internalBuffer);
 			internalClient.Close ();
