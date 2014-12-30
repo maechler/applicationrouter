@@ -7,7 +7,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>WebApplicationRouter</RootNamespace>
     <AssemblyName>WebApplicationRouter</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +40,8 @@
     <Compile Include="Routing\HttpRoutingServer.cs" />
     <Compile Include="Routing\RoutingTable.cs" />
     <Compile Include="Routing\RoutingDestination.cs" />
+    <Compile Include="Routing\TcpRoutingServer.cs" />
+    <Compile Include="Routing\TcpRouter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
