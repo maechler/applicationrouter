@@ -17,8 +17,8 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Externalconsole>true</Externalconsole>
     <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>
@@ -40,6 +40,8 @@
     <Compile Include="Routing\HttpRoutingServer.cs" />
     <Compile Include="Routing\RoutingTable.cs" />
     <Compile Include="Routing\RoutingDestination.cs" />
+    <Compile Include="Routing\TcpRoutingServer.cs" />
+    <Compile Include="Routing\TcpRouter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

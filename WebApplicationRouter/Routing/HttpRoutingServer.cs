@@ -26,8 +26,10 @@ namespace Marx.Net
 		{
 			Listener.Start ();
 			while (Listener.IsListening) {
-				var router = new HttpRouter ();
-				Listener.BeginGetContext (router.HandleExternalRequest, this);
+				var router = new HttpRouter (this);
+				var context = Listener.GetContext ();
+
+				router.HandleExternalRequest (context);
 			}
 		}
 

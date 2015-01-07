@@ -6,22 +6,28 @@ namespace Marx.Net
 {
 	class HttpRouter
 	{
-		internal void HandleExternalRequest (IAsyncResult result)
+		HttpRoutingServer routingServer;
+
+		internal HttpRouter (HttpRoutingServer server)
 		{
-			var routingServer = (HttpRoutingServer)result.AsyncState;
-			var listener = routingServer.Listener;
+			routingServer = server;
+		}
 
-			var context = listener.EndGetContext (result);
-			var request = context.Request;
-			var response = context.Response;
+		internal void HandleExternalRequest (HttpListenerContext context)
+		{
+			var externalRequest = context.Request;
+			var externalResponse = context.Response;
 
-			Console.WriteLine ("Call from: " + request.RemoteEndPoint.ToString ());
+			var destination = routingServer.RoutingTable.FindMatchingDomain (externalRequest.UserHostName);
+			//CallDestination (destination, externalRequest);
+
+			Console.WriteLine ("Call from: " + externalRequest.RemoteEndPoint);
 
 			byte[] responsebyte = System.Text.Encoding.UTF8.GetBytes ("Hello World from router");
-			System.IO.Stream output = response.OutputStream;
+			System.IO.Stream output = externalResponse.OutputStream;
 			output.Write (responsebyte, 0, responsebyte.Length);
 			output.Close ();
-			response.Close ();
+			externalResponse.Close ();
 		}
 	}
 }
